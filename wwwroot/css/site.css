@@ -34,8 +34,9 @@ for details on configuring this project to bundle and minify static web assets. 
   flex: 0.23;
   background-color: rgba(0, 0, 0, .05);
   border-radius: 1em;
-  height: 100%;
+  min-height: 100%;
   padding: 0 3em;
+  transition: all 0.2s ease-in-out;
 }
 .drink-image {
   margin-bottom: 2em;
@@ -51,6 +52,41 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 .drink-info {
   color: rgba(0, 0, 0, .7)
+}
+.arrow-left {
+  width: 2em;
+  height: 2em;
+  border-bottom: .5em white solid;
+  border-left: .5em white solid;
+  transform: rotate(45deg);
+}
+.arrow-right {
+  width: 2em;
+  height: 2em;
+  border-bottom: .5em white solid;
+  border-left: .5em white solid;
+  transform: rotate(225deg);
+}
+.drink-arrows {
+  height: 0;
+  position: relative;
+  top: -5em;
+  margin: 0 -1em;
+  display: none;
+}
+
+.focused {
+  transform: scale(1.2);
+  background-color: #00815C;
+}
+.focused h3 {
+  color: rgba(245, 245, 245, 1)
+}
+.focused p {
+  color: rgba(245, 245, 245, .8)
+}
+.focused .drink-arrows {
+  display: flex;
 }
 
 a.navbar-brand {
