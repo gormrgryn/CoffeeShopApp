@@ -5,7 +5,7 @@
         this.prev = null
     }
 }
-class LinkedList {
+class DoublyLinkedList {
     constructor() {
         this.length = 0
         this.head = null
@@ -26,7 +26,7 @@ class LinkedList {
         }
         this.length++
     }
-    find(elem) {
+    findNodeByElem(elem) {
         let currentNode = this.head
         while(currentNode) {
             if (currentNode.elem == elem) return currentNode
@@ -35,34 +35,25 @@ class LinkedList {
     }
 }
 
-const list = new LinkedList()
+const list = new DoublyLinkedList()
+
+const toggleFocus = (i) => i.classList.toggle('focused')
+const swipe = (i, right) => {
+    let node = list.findNodeByElem(i)
+    let swipeNode
+    if (right) {
+        swipeNode = node.next ? node.next : list.head
+    } else {
+        swipeNode = node.prev ? node.prev : list.tail
+    }
+    swipeNode.elem.focus()
+}
 
 document.querySelectorAll('.drink').forEach(i => {
     list.add(i)
-    i.addEventListener('focus', () => {
-        i.classList.toggle('focused')
-    })
-    i.addEventListener('blur', () => {
-        i.classList.toggle('focused')
-    })
-    const leftArrow = i.childNodes[3].childNodes[1]
-    const rightArrow = i.childNodes[3].childNodes[3]
-    leftArrow.addEventListener('click', () => {
-        let node = list.find(i)
-        node.elem.blur()
-        if (node.prev) {
-            node.prev.elem.focus()
-        } else {
-            list.tail.elem.focus()
-        }
-    })
-    rightArrow.addEventListener('click', () => {
-        let node = list.find(i)
-        node.elem.blur()
-        if (node.next) {
-            node.next.elem.focus()
-        } else {
-            list.head.elem.focus()
-        }
-    })
+    i.addEventListener('focus', () => toggleFocus(i))
+    i.addEventListener('blur', () => toggleFocus(i))
+
+    i.querySelector('.arrow-left').addEventListener('click', () => swipe(i, false))
+    i.querySelector('.arrow-right').addEventListener('click', () => swipe(i, true))
 })
