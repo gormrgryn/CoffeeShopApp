@@ -12,9 +12,8 @@ namespace CoffeeShopApp.Migrations
                 {
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Image = table.Column<string>(type: "TEXT", nullable: true),
-                    Price = table.Column<decimal>(type: "decimal(18, 2", nullable: false),
-                    Calories = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Ingridients = table.Column<string>(type: "TEXT", nullable: true)
+                    Price = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
+                    Calories = table.Column<decimal>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -27,9 +26,8 @@ namespace CoffeeShopApp.Migrations
                 {
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Image = table.Column<string>(type: "TEXT", nullable: true),
-                    Price = table.Column<decimal>(type: "decimal(18, 2", nullable: false),
-                    Calories = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Ingridients = table.Column<string>(type: "TEXT", nullable: true)
+                    Price = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
+                    Calories = table.Column<decimal>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

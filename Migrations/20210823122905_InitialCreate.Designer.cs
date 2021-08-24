@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoffeeShopApp.Migrations
 {
     [DbContext(typeof(CoffeeShopContext))]
-    [Migration("20210822161753_InitialCreate")]
+    [Migration("20210823122905_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,11 +28,8 @@ namespace CoffeeShopApp.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Ingridients")
-                        .HasColumnType("TEXT");
-
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18, 2");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.HasKey("Name");
 
@@ -50,11 +47,8 @@ namespace CoffeeShopApp.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Ingridients")
-                        .HasColumnType("TEXT");
-
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18, 2");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.HasKey("Name");
 

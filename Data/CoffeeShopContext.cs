@@ -11,8 +11,5 @@ namespace CoffeeShopApp.Data
 
         public DbSet<Coffee> Coffees { get; set; }
         public DbSet<Tea> Teas { get; set; }
-
-        // protected override void OnModelCreating(ModelBuilder modelBuilder) =>
-        //     modelBuilder.Entity<CoffeeShopContext>().HasNoKey();
     }
 }

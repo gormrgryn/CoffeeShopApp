@@ -1,6 +1,8 @@
+@model IEnumerable<CoffeeShopApp.Models.Coffee>
+
 <div class="coffee-page">
     <div class="drinks-wrapper d-flex justify-content-between">
-        <div class="drink" tabindex="0">
+        <!-- <div class="drink" tabindex="0">
             <div class="drink-image">
                 <div class="d-flex justify-content-center">
                     <img src="~/img/starbucks-coffee.png" />
@@ -79,6 +81,29 @@
                 <p>Calories</p>
                 <p>Calories</p>
             </div>
-        </div>
+        </div> -->
+        @foreach (var coffee in Model)
+        {
+            <div class="drink" tabindex="0">
+                <div class="drink-image">
+                    <div class="d-flex justify-content-center">
+                        <img src="~/img/@coffee.Image" />
+                    </div>
+                </div>
+                <div class="justify-content-between drink-arrows">
+                    <div class="arrow-left"></div>
+                    <div class="arrow-right"></div>
+                </div>
+                <div class="drink-name">
+                    <h3>@coffee.Name</h3>
+                </div>
+                <div class="drink-info">
+                    <p>Price</p>
+                    <p class="text-right">$@coffee.Price</p>
+                    <p>Calories</p>
+                    <p class="text-right">@coffee.Calories g</p>
+                </div>
+            </div>
+        }
     </div>
 </div>

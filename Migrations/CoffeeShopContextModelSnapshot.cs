@@ -26,11 +26,8 @@ namespace CoffeeShopApp.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Ingridients")
-                        .HasColumnType("TEXT");
-
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18, 2");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.HasKey("Name");
 
@@ -48,11 +45,8 @@ namespace CoffeeShopApp.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Ingridients")
-                        .HasColumnType("TEXT");
-
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18, 2");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.HasKey("Name");
 
