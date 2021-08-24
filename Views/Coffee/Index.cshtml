@@ -2,86 +2,6 @@
 
 <div class="coffee-page">
     <div class="drinks-wrapper d-flex justify-content-between">
-        <!-- <div class="drink" tabindex="0">
-            <div class="drink-image">
-                <div class="d-flex justify-content-center">
-                    <img src="~/img/starbucks-coffee.png" />
-                </div>
-            </div>
-            <div class="justify-content-between drink-arrows">
-                <div class="arrow-left"></div>
-                <div class="arrow-right"></div>
-            </div>
-            <div class="drink-name">
-                <h3>Midnight Mint Mocha Frappuccino</h3>
-            </div>
-            <div class="drink-info">
-                <p>Calories</p>
-                <p>Calories</p>
-                <p>Calories</p>
-                <p>Calories</p>
-            </div>
-        </div>
-        <div class="drink" tabindex="0">
-            <div class="drink-image">
-                <div class="d-flex justify-content-center">
-                    <img src="~/img/starbucks-coffee.png" />
-                </div>
-            </div>
-            <div class="justify-content-between drink-arrows">
-                <div class="arrow-left"></div>
-                <div class="arrow-right"></div>
-            </div>
-            <div class="drink-name">
-                <h3>Midnight Mint Mocha Frappuccino</h3>
-            </div>
-            <div class="drink-info">
-                <p>Calories</p>
-                <p>Calories</p>
-                <p>Calories</p>
-                <p>Calories</p>
-            </div>
-        </div>
-        <div class="drink" tabindex="0">
-            <div class="drink-image">
-                <div class="d-flex justify-content-center">
-                    <img src="~/img/starbucks-coffee.png" />
-                </div>
-            </div>
-            <div class="justify-content-between drink-arrows">
-                <div class="arrow-left"></div>
-                <div class="arrow-right"></div>
-            </div>
-            <div class="drink-name">
-                <h3>Midnight Mint Mocha Frappuccino</h3>
-            </div>
-            <div class="drink-info">
-                <p>Calories</p>
-                <p>Calories</p>
-                <p>Calories</p>
-                <p>Calories</p>
-            </div>
-        </div>
-        <div class="drink" tabindex="0">
-            <div class="drink-image">
-                <div class="d-flex justify-content-center">
-                    <img src="~/img/starbucks-coffee.png" />
-                </div>
-            </div>
-            <div class="justify-content-between drink-arrows">
-                <div class="arrow-left"></div>
-                <div class="arrow-right"></div>
-            </div>
-            <div class="drink-name">
-                <h3>Midnight Mint Mocha Frappuccino</h3>
-            </div>
-            <div class="drink-info">
-                <p>Calories</p>
-                <p>Calories</p>
-                <p>Calories</p>
-                <p>Calories</p>
-            </div>
-        </div> -->
         @foreach (var coffee in Model)
         {
             <div class="drink" tabindex="0">
@@ -98,10 +18,22 @@
                     <h3>@coffee.Name</h3>
                 </div>
                 <div class="drink-info">
-                    <p>Price</p>
-                    <p class="text-right">$@coffee.Price</p>
-                    <p>Calories</p>
-                    <p class="text-right">@coffee.Calories g</p>
+                    <div class="drink-info-row-1 d-flex justify-content-between">
+                        <p>Price</p>
+                        <p>$@coffee.Price</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p>Calories</p>
+                        <p>
+                            <span>
+                                @coffee.Calories
+                            </span>
+                            g
+                        </p>
+                    </div>
+                </div>
+                <div class="drink-add-to-cart">
+                    <button>ADD TO BASKET</button>
                 </div>
             </div>
         }

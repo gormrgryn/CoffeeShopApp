@@ -35,7 +35,7 @@ for details on configuring this project to bundle and minify static web assets. 
   background-color: rgba(0, 0, 0, .05);
   border-radius: 1em;
   min-height: 100%;
-  padding: 0 3em;
+  padding: 0 3em 2em 3em;
   transition: all 0.2s ease-in-out;
 }
 .drink-image {
@@ -47,11 +47,18 @@ for details on configuring this project to bundle and minify static web assets. 
 .drink-image > div {
   margin-top: -30%;
 }
+.drink-name {
+  height: 22%;
+}
 .drink-name > h3 {
   line-height: 1;
 }
 .drink-info {
   color: rgba(0, 0, 0, .7)
+}
+.drink-info-row-1 {
+  margin-top: 2em;
+  margin-bottom: 1em;
 }
 .arrow-left {
   width: 2em;
@@ -87,6 +94,31 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 .focused .drink-arrows {
   display: flex;
+}
+
+.drink-add-to-cart {
+  display: flex;
+  height: 15%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+.focused .drink-add-to-cart {
+  opacity: 1;
+}
+.drink-add-to-cart button {
+  height: 70%;
+  width: 100%;
+  background-color: whitesmoke;
+  border-radius: 3em;
+  color: #00815C;
+  outline: none;
+  border: none;
+  padding: 3px;
+  font-weight: bold;
+  font-family: inherit;
 }
 
 a.navbar-brand {
@@ -153,7 +185,7 @@ body {
 }
 main {
   min-height: 90%;
-  margin: 3em;
+  margin: 2em;
 }
 .footer {
   position: absolute;

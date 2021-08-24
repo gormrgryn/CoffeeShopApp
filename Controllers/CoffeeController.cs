@@ -4,6 +4,7 @@ using CoffeeShopApp.Data;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using CoffeeShopApp.Models;
 
 namespace CoffeeShopApp.Controllers
 {
