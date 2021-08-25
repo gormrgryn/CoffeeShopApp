@@ -10,9 +10,9 @@ namespace CoffeeShopApp.Data
         {
             context.Database.EnsureCreated();
 
-            if (context.Coffees.Any())
+            if (context.Products.Any())
             {
-                return; // data has been seeded
+                return;
             }
             var coffees = new Coffee[]
             {
@@ -21,9 +21,9 @@ namespace CoffeeShopApp.Data
                 new Coffee { Name="Cold Brew Coffee with Milk", Image="starbucks-coffee.png", Price=7, Calories=35 },
                 new Coffee { Name="Salted Caramel Cream Cold Brew", Image="starbucks-coffee.png", Price=12, Calories=220 }
             };
-            foreach (Coffee coffee in coffees)
+            foreach (Product coffee in coffees)
             {
-                context.Coffees.Add(coffee);
+                context.Products.Add(coffee);
             }
             context.SaveChanges();
         }

@@ -103,12 +103,15 @@ for details on configuring this project to bundle and minify static web assets. 
   justify-content: center;
   align-items: center;
   opacity: 0;
+  transform: scale(0);
   transition: all 0.2s ease-in-out;
+  transform-origin: 50% 50%;
 }
 .focused .drink-add-to-cart {
   opacity: 1;
+  transform: scale(1);
 }
-.drink-add-to-cart button {
+.drink-add-to-cart .button {
   height: 70%;
   width: 100%;
   background-color: whitesmoke;

@@ -57,3 +57,7 @@ document.querySelectorAll('.drink').forEach(i => {
     i.querySelector('.arrow-left').addEventListener('click', () => swipe(i, false))
     i.querySelector('.arrow-right').addEventListener('click', () => swipe(i, true))
 })
+
+document.querySelectorAll('.button').forEach(i => {
+    i.addEventListener('click', () => console.log('buLLeT'))
+})

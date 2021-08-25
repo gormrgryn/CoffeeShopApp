@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoffeeShopApp.Migrations
 {
     [DbContext(typeof(CoffeeShopContext))]
-    [Migration("20210823122905_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210825162549_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -17,42 +17,30 @@ namespace CoffeeShopApp.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.9");
 
-            modelBuilder.Entity("CoffeeShopApp.Models.Coffee", b =>
+            modelBuilder.Entity("CoffeeShopApp.Models.Product", b =>
                 {
-                    b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("ProductID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Calories")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DrinkType")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Image")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18, 2)");
-
-                    b.HasKey("Name");
-
-                    b.ToTable("Coffees");
-                });
-
-            modelBuilder.Entity("CoffeeShopApp.Models.Tea", b =>
-                {
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("Calories")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("TEXT");
-
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18, 2)");
 
-                    b.HasKey("Name");
+                    b.HasKey("ProductID");
 
-                    b.ToTable("Teas");
+                    b.ToTable("Products");
                 });
 #pragma warning restore 612, 618
         }

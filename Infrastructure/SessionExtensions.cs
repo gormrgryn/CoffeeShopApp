@@ -1,19 +1,19 @@
 using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
+using System.Text.Json;
 using CoffeeShopApp.Models;
 
 namespace CoffeeShopApp.Infrastructure
 {
     public static class SessionExtensions
     {
-        public static void SetJson(this ISession session, string key, Product product)
+        public static void SetJson(this ISession session, string key, Basket basket)
         {
-            session.SetString(key, JsonConverter.SerializeObject(product));
+            session.SetString(key, JsonSerializer.Serialize(basket));
         }
-        public static Product GetJson(this ISession session, string key)
+        public static Basket GetJson(this ISession session, string key)
         {
             var sessionData = session.GetString(key);
-            return sessionData == null ? default(Product) : JsonConverter.DeserializeObject<Product>(sessionData);
+            return sessionData == null ? default(Basket) : JsonSerializer.Deserialize<Basket>(sessionData);
         }
     }
 }

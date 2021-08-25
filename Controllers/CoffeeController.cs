@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CoffeeShopApp.Models;
+using System.Linq;
 
 namespace CoffeeShopApp.Controllers
 {
@@ -20,7 +21,7 @@ namespace CoffeeShopApp.Controllers
         public async Task<IActionResult> Index()
         {
             ViewData["Title"] = "Coffee";
-            return View(await context.Coffees.ToListAsync());
+            return View(await context.Products.Where(p => p.DrinkType == "Coffee").ToListAsync());
         }
     }
 }

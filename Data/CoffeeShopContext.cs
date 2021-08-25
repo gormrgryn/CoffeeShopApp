@@ -9,7 +9,6 @@ namespace CoffeeShopApp.Data
         public CoffeeShopContext(DbContextOptions<CoffeeShopContext> options)
             : base(options) {}
 
-        public DbSet<Coffee> Coffees { get; set; }
-        public DbSet<Tea> Teas { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }

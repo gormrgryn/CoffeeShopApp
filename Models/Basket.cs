@@ -3,29 +3,30 @@ using System.Collections.Generic;
 
 namespace CoffeeShopApp.Models
 {
-    public class Cart
+    public class Basket
     {
-        private List<CartLine> lineCollection = new List<CartLine>();
+        private List<BasketItem> lineCollection = new List<BasketItem>();
 
         public void AddItem(Product product, int quantity)
         {
-            CartLine line = lineCollection
-                .Where(l => l.Product == product)
+            BasketItem line = lineCollection
+                .Where(l => l.Product.ProductID == product.ProductID)
                 .FirstOrDefault();
             if (line == null)
             {
                 lineCollection.Add(
-                    new CartLine { Product = product, Quantity = quantity }
+                    new BasketItem { Product = product, Quantity = quantity }
                 );
             } else
             {
                 line.Quantity += quantity;
             }
         }
-        public void RemoveItem(Product product) => lineCollection.RemoveAll(l => l.Product == product);
-        public IEnumerable<CartLine> Lines => lineCollection;
+        public void RemoveItem(Product product) =>
+            lineCollection.RemoveAll(l => l.Product.ProductID == product.ProductID);
+        public IEnumerable<BasketItem> Lines => lineCollection;
     }
-    public class CartLine
+    public class BasketItem
     {
         public int CartLineID { get; set; }
         public Product Product { get; set; }
