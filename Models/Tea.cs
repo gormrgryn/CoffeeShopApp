@@ -1,4 +1,4 @@
 namespace CoffeeShopApp.Models
 {
-    public class Tea : DrinkModel {}
+    public class Tea : Product {}
 }

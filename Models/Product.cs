@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CoffeeShopApp.Models
 {
-    abstract public class DrinkModel
+    abstract public class Product
     {
         [Key]
         public string Name { get; set; }
