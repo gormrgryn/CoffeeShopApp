@@ -11,13 +11,24 @@ namespace CoffeeShopApp.Controllers
     {
         private readonly CoffeeShopContext context;
 
-        public BasketController (CoffeeShopContext context)
+        public BasketController(CoffeeShopContext context)
         {
             this.context = context;
         }
         public IActionResult Index()
         {
-            return View(context.Basket.Where(j => j.BasketLineID != 0));
+            var bList = context.Basket.Where(j => j.BasketLineID != 0);
+            List<BasketLine> basketLineList = new List<BasketLine>();
+            foreach (var i in bList)
+            {
+                basketLineList.Add(new BasketLine
+                {
+                    BasketLineID = i.BasketLineID,
+                    Quantity = i.Quantity,
+                    Product = context.Products.FirstOrDefault(l => l.ProductID == i.ProductID)
+                });
+            }
+            return View(basketLineList);
         }
         [HttpPost]
         public async Task<IActionResult> AddToBasket(int productId)

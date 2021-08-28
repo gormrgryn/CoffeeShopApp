@@ -1,7 +1,7 @@
-@model IEnumerable<CoffeeShopApp.Models.BasketItem>
+@model IEnumerable<CoffeeShopApp.Models.BasketLine>
 <p>added to basket</p>
 @foreach (var item in Model)
 {
     <p>Quantity: @Html.DisplayFor(modelItem => item.Quantity)</p>
-    <p>product: @Html.DisplayFor(modelItem => item.ProductID)</p>
+    <p>Product Name: @Html.DisplayFor(modelItem => item.Product.Name)</p>
 }
