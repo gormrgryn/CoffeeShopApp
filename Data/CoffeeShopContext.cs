@@ -10,5 +10,6 @@ namespace CoffeeShopApp.Data
             : base(options) {}
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<BasketItem> Basket { get; set; }
     }
 }

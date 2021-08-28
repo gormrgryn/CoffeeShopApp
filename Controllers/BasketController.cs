@@ -1,8 +1,9 @@
 using System.Linq;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using CoffeeShopApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using CoffeeShopApp.Data;
-using CoffeeShopApp.Infrastructure;
 
 namespace CoffeeShopApp.Controllers
 {
@@ -16,27 +17,28 @@ namespace CoffeeShopApp.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            return View(context.Basket.Where(j => j.BasketLineID != 0));
         }
-        public IActionResult AddToBasket(int productId)
+        [HttpPost]
+        public async Task<IActionResult> AddToBasket(int productId)
         {
             Product product = context.Products
-                .FirstOrDefault(p => p.ProductID == productId);
+                .FirstOrDefault(p => productId == p.ProductID);
             if (product != null)
             {
-                Basket basket = GetBasket();
-                basket.AddItem(product, 1);
-                SaveBasket(basket);
+                BasketItem item = context.Basket.FirstOrDefault(i => i.ProductID == productId);
+                if (item != null) item.Quantity++;
+                else {
+                    BasketItem bitem = new BasketItem
+                    {
+                        ProductID = productId,
+                        Quantity = 1
+                    };
+                    context.Basket.Add(bitem);
+                }
+                await context.SaveChangesAsync();
             }
             return RedirectToAction("Index");
-        }
-        private Basket GetBasket()
-        {
-            return HttpContext.Session.GetJson("Basket") ?? new Basket();
-        }
-        private void SaveBasket(Basket basket)
-        {
-            HttpContext.Session.SetJson("Basket", basket);
         }
     }
 }

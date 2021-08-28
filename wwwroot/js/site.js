@@ -40,12 +40,9 @@ const list = new DoublyLinkedList()
 const toggleFocus = (i) => i.classList.toggle('focused')
 const swipe = (i, right) => {
     let node = list.findNodeByElem(i)
-    let swipeNode
-    if (right) {
-        swipeNode = node.next ? node.next : list.head
-    } else {
-        swipeNode = node.prev ? node.prev : list.tail
-    }
+    let dir = right ? 'next' : 'prev'
+    let end = right ? 'head' : 'tail'
+    let swipeNode = node[dir] || list[end]
     swipeNode.elem.focus()
 }
 
@@ -58,6 +55,8 @@ document.querySelectorAll('.drink').forEach(i => {
     i.querySelector('.arrow-right').addEventListener('click', () => swipe(i, true))
 })
 
-document.querySelectorAll('.button').forEach(i => {
-    i.addEventListener('click', () => console.log('buLLeT'))
-})
+// document.querySelectorAll('.button').forEach(i => {
+//     i.addEventListener('focus', (evt) => {
+//         i.parentNode.parentNode.focus();
+//     })
+// })

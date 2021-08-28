@@ -4,7 +4,7 @@
     <div class="drinks-wrapper d-flex justify-content-between">
         @foreach (var product in Model)
         {
-            <div class="drink" tabindex="0">
+            <div class="drink focused" tabindex="0">
                 <div class="drink-image">
                     <div class="d-flex justify-content-center">
                         <img src="~/img/@product.Image" />
@@ -32,9 +32,10 @@
                         </p>
                     </div>
                 </div>
-                <div class="drink-add-to-cart">
-                    <input type="submit" value="ADD TO BASKET" tabindex="-1" class="button"/>
-                </div>
+                <form class="drink-add-to-cart" method="post" asp-controller="Basket" asp-action="AddToBasket">
+                    <input type="hidden" name="ProductID" value="@product.ProductID">
+                    <input type="submit" value="ADD TO BASKET" tabindex="-2" class="button"/>
+                </form>
             </div>
         }
     </div>
