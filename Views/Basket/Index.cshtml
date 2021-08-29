@@ -1,7 +1,48 @@
 @model IEnumerable<CoffeeShopApp.Models.BasketLine>
-<p>added to basket</p>
-@foreach (var item in Model)
-{
-    <p>Quantity: @Html.DisplayFor(modelItem => item.Quantity)</p>
-    <p>Product Name: @Html.DisplayFor(modelItem => item.Product.Name)</p>
-}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Calories)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.DrinkType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BasketLineID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                $@Html.DisplayFor(modelItem => item.Product.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Calories)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.DrinkType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

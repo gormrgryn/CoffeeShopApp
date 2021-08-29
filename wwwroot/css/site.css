@@ -38,13 +38,12 @@ for details on configuring this project to bundle and minify static web assets. 
   min-height: 100%;
   padding: 0 3em 2em 3em;
   transition: all 0.2s ease-in-out;
-  margin-bottom: 4em;
 }
 .drink-image {
-  margin-bottom: 2em;
+  /* margin-bottom: 2em; */
 }
 .drink-image img {
-  width: 45%;
+  width: 100%;
 }
 .drink-image > div {
   margin-top: -30%;
