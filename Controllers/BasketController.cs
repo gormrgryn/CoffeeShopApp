@@ -2,6 +2,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CoffeeShopApp.Models;
+using CoffeeShopApp.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using CoffeeShopApp.Data;
 
@@ -17,18 +18,31 @@ namespace CoffeeShopApp.Controllers
         }
         public IActionResult Index()
         {
-            var bList = context.Basket.Where(j => j.BasketLineID != 0);
+            var basketProductsList = context.Basket.Where(j => j.BasketLineID != 0);
             List<BasketLine> basketLineList = new List<BasketLine>();
-            foreach (var i in bList)
+            decimal price = 0;
+            decimal calories = 0;
+            int quantity = 0;
+            foreach (var i in basketProductsList)
             {
+                var product = context.Products.FirstOrDefault(l => l.ProductID == i.ProductID);
                 basketLineList.Add(new BasketLine
                 {
                     BasketLineID = i.BasketLineID,
                     Quantity = i.Quantity,
-                    Product = context.Products.FirstOrDefault(l => l.ProductID == i.ProductID)
+                    Product = product
                 });
+                price += product.Price;
+                calories += product.Calories;
+                quantity += i.Quantity;
             }
-            return View(basketLineList);
+            return View(new BasketViewModel
+            {
+                BasketItems = basketLineList,
+                Price = price,
+                Calories = calories,
+                Quantity = quantity
+            });
         }
         [HttpPost]
         public async Task<IActionResult> AddToBasket(int productId)
@@ -49,7 +63,7 @@ namespace CoffeeShopApp.Controllers
                 }
                 await context.SaveChangesAsync();
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Coffee");
         }
     }
 }

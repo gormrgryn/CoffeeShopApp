@@ -20,7 +20,7 @@
                 <div class="drink-info">
                     <div class="drink-info-row-1 d-flex justify-content-between">
                         <p>@Html.DisplayNameFor(model => model.Price)</p>
-                        <p>@product.Price.ToString("c")</p>
+                        <p>$@Html.DisplayFor(model => product.Price)</p>
                     </div>
                     <div class="d-flex justify-content-between">
                         <p>@Html.DisplayNameFor(model => model.Calories)</p>

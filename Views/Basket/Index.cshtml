@@ -1,20 +1,20 @@
-@model IEnumerable<CoffeeShopApp.Models.BasketLine>
+@model CoffeeShopApp.Models.ViewModels.BasketViewModel
 
 <table class="table">
     <thead>
         <tr>
             <th></th>
             <th>
-                @Html.DisplayNameFor(model => model.Product.Name)
+                @Html.DisplayNameFor(model => model.BasketItems[0].Product.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Product.Price)
+                @Html.DisplayNameFor(model => model.BasketItems[0].Product.Price)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Product.Calories)
+                @Html.DisplayNameFor(model => model.BasketItems[0].Product.Calories)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Product.DrinkType)
+                @Html.DisplayNameFor(model => model.BasketItems[0].Product.DrinkType)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Quantity)
@@ -22,7 +22,7 @@
         </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model) {
+    @foreach (var item in Model.BasketItems) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.BasketLineID)
@@ -44,5 +44,13 @@
             </td>
         </tr>
     }
+        <tr>
+            <td></td>
+            <th>Summarry</th>
+            <td>$@Html.DisplayFor(model => model.Price)</td>
+            <td>@Html.DisplayFor(model => model.Calories)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.Quantity)</td>
+        </tr>
     </tbody>
 </table>
