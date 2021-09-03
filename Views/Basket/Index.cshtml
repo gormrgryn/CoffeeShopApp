@@ -42,6 +42,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Quantity)
             </td>
+            <td>
+                <form asp-controller="Basket" asp-action="Remove" method="post">
+                    <input type="hidden" name="id" value="@item.BasketLineID" asp-for="BasketItems[0].BasketLineID"/>
+                    <button class="btn p-0 self-center" type="submit">Remove</button>
+                </form>
+            </td>
         </tr>
     }
         <tr>
@@ -51,6 +57,7 @@
             <td>@Html.DisplayFor(model => model.Calories)</td>
             <td></td>
             <td>@Html.DisplayFor(model => model.Quantity)</td>
+            
         </tr>
     </tbody>
 </table>

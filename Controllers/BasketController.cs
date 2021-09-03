@@ -65,5 +65,19 @@ namespace CoffeeShopApp.Controllers
             }
             return RedirectToAction("Index", "Coffee");
         }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Remove(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var products = await context.Basket.FindAsync(id);
+            context.Basket.Remove(products);
+            await context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
     }
 }
