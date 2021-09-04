@@ -29,10 +29,11 @@ for details on configuring this project to bundle and minify static web assets. 
 .drinks-wrapper {
   max-height: 100%;
   padding-top: 4em; 
-  flex-wrap: wrap;
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: repeat(4, 1fr);
 }
 .drink {
-  width: 23%;
   background-color: rgba(0, 0, 0, .05);
   border-radius: 1em;
   min-height: 100%;
