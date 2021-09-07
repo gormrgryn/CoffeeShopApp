@@ -36,4 +36,17 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    @if (ViewBag.Notification != null)
+    {
+        <div class="notification @ViewBag.Notification.Type">
+            <h5>@ViewBag.Notification.Title</h5>
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="cross">
+                    <span class="cross-1"></span>
+                    <span class="cross-2"></span>
+                </div>
+            </div>
+            <span>@ViewBag.Notification.Description</span>
+        </div>
+    }
 </div>

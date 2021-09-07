@@ -55,8 +55,8 @@ document.querySelectorAll('.drink').forEach(i => {
     i.querySelector('.arrow-right').addEventListener('click', () => swipe(i, true))
 })
 
-// document.querySelectorAll('.button').forEach(i => {
-//     i.addEventListener('focus', (evt) => {
-//         i.parentNode.parentNode.focus();
-//     })
-// })
+document.querySelectorAll('.notification').forEach(i => {
+    i.querySelector('.cross').addEventListener('click', () => {
+        i.classList.toggle('notification-invisible')
+    })
+})

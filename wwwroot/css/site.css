@@ -132,6 +132,45 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+/* Notification box styles */
+.notification {
+  position: absolute;
+  left: 25px;
+  bottom: 25px;
+  padding: 1.5em;
+  border: 1px solid;
+  border-radius: 1em;
+  width: 35%;
+  display: grid;
+  grid-template-columns: 8fr 1fr;
+}
+.notification.success {
+  background-color: rgba(0, 256, 0, 0.1);
+  border-color: green;
+}
+.notification-invisible {
+  display: none;
+}
+.cross {
+  cursor: pointer;
+}
+.cross > span {
+  display: inline-block;
+  width: 25px;
+  height: 2px;
+  background-color: rgba(0, 0, 0, .7);
+  position: absolute;
+  top: 34px;
+  right: 20px;
+  transform-origin: 50% 50%
+}
+.cross > .cross-1 {
+  transform: rotate(45deg);
+}
+.cross > .cross-2 {
+  transform: rotate(-45deg);
+}
+
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
@@ -147,10 +186,6 @@ a {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
-}
-
-.error-span {
-  color: rgb(185, 57, 57);
 }
 
 /* Sticky footer styles

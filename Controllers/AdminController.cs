@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using CoffeeShopApp.Models;
+using CoffeeShopApp.Models.ViewModels;
 using CoffeeShopApp.Data;
 
 namespace CoffeeShopApp.Controllers
@@ -27,6 +28,12 @@ namespace CoffeeShopApp.Controllers
             {
                 context.Add(product);
                 await context.SaveChangesAsync();
+                ViewBag.Notification = new NotificationViewModel
+                {
+                    Type = "success",
+                    Title = "Success",
+                    Description = $"You have successfully added product {product.Name} to the shop"
+                };
             }
             return View();
         }
