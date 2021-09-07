@@ -28,7 +28,7 @@ namespace CoffeeShopApp.Controllers
                 context.Add(product);
                 await context.SaveChangesAsync();
             }
-            return RedirectToAction("Index");
+            return View();
         }
     }
 }

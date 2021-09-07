@@ -149,6 +149,10 @@ a {
   border-color: #1861ac;
 }
 
+.error-span {
+  color: rgb(185, 57, 57);
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {

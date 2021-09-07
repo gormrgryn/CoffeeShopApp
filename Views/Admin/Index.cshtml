@@ -1,30 +1,39 @@
-@model Product
+@model CoffeeShopApp.Models.Product
 
 <div class="d-flex justify-content-between">
     <div>
         <h1>Add a Drink</h1>
     </div>
     <form method="post" asp-action="Index" class="col-7">
-    <div class="mb-3">
-        <label asp-for="Name" class="form-label">Drink name</label>
-        <input asp-for="Name" type="text" class="form-control">
-    </div>
-    <div class="mb-3">
-        <label asp-for="Image" class="form-label">Image filename</label>
-        <input asp-for="Image" type="text" class="form-control">
-    </div>
-    <div class="mb-3">
-        <label asp-for="DrinkType" class="form-label">Drink type</label>
-        <input asp-for="DrinkType" type="text" class="form-control">
-    </div>
-    <div class="mb-3">
-        <label asp-for="Price" class="form-label">Drink Price</label>
-        <input asp-for="Price" type="text" class="form-control">
-    </div>
-    <div class="mb-3">
-        <label asp-for="Calories" class="form-label">Calories</label>
-        <input asp-for="Calories" type="text" class="form-control">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Drink name</label>
+            <input asp-for="Name" type="text" class="form-control">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Image" class="form-label">Image filename</label>
+            <input asp-for="Image" type="text" class="form-control">
+            <span class="text-danger" asp-validation-for="Image"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="DrinkType" class="form-label">Drink type</label>
+            <select asp-for="DrinkType" type="text" class="form-control">
+                <option value="">Select Type</option>
+                <option value="Coffee">Coffee</option>
+                <option value="Tea">Tea</option>
+            </select>
+            <span class="text-danger" asp-validation-for="DrinkType"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Price" class="form-label">Drink Price</label>
+            <input asp-for="Price" type="text" class="form-control">
+            <span class="text-danger" asp-validation-for="Price"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Calories" class="form-label">Calories</label>
+            <input asp-for="Calories" type="text" class="form-control">
+            <span class="text-danger" asp-validation-for="Calories"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
